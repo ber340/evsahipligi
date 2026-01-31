@@ -196,6 +196,51 @@
                 font-size: 1rem;
             }
         }
+
+        /* Düzenleme kontrolleri (görseli minimal tutmak için sade) */
+        .edit-controls {
+            position: fixed;
+            right: 16px;
+            bottom: 16px;
+            display: flex;
+            gap: 8px;
+            z-index: 1200;
+        }
+
+        .edit-btn, .save-btn, .reset-btn {
+            background: #111;
+            color: #fff;
+            border: none;
+            padding: 8px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            opacity: 0.95;
+        }
+
+        .save-btn[hidden], .reset-btn[hidden] {
+            display: none;
+        }
+
+        /* Hafif düzenleme modu sınırı (görünür ama gözü rahatsız etmez) */
+        .editable-active [contenteditable="true"] {
+            outline: 1px dashed rgba(0,0,0,0.12);
+        }
+
+        /* Küçük bildirim */
+        .edit-toast {
+            position: fixed;
+            right: 16px;
+            bottom: 76px;
+            background: #222;
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            opacity: 0.95;
+            z-index: 1201;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -207,7 +252,7 @@
     <main>
         <section class="info-box">
             <h2>Başlangıç Dönemi (1949-1978)</h2>
-            <p>Çin Halk Cumhuriyeti'nin kuruluşuyla birlikte tüm kentsel arazi devlet mülkiyetine alındı; kamulaştırıldı. Konut alım-satımı kaldırıldı ve konutlar kamu tarafından yönetildi.</p>
+            <p>Çin Halk Cumhuriyeti'nin kuruluşuyla birlikte tüm kentsel arazi devlet mülkiyetine alındı; kamulaştırıldı. Konut alım-satımı kaldırıldı ve konutlar kamu tarafından yön[...]
             <p>Bu dönemde konut, devlet kurumları ve kamu kuruluşları tarafından inşa edilip düşük sembolik kira ile halka tahsis edildi.</p>
             <div class="highlight-box">
                 <p>Bu sistem, merkezi planlama çerçevesinde çalıştı ve 1980'lerin başında kentsel hanehalklarının büyük kısmı kamuya ait lojmanlarda düşük kira ile yaşadı.</p>
@@ -217,27 +262,27 @@
         
         <section class="info-box">
             <h2>Ekonomik Reformlar ve Değişim (1978-1998)</h2>
-            <p>1978'de başlayan ekonomik reformlarla devletin yatırım tekeli yavaş yavaş gevşetilmeye başlandı; konut sektöründe özel sermaye ve piyasa odaklı uygulamalara doğru ilk adımlar atıldı.</p>
+            <p>1978'de başlayan ekonomik reformlarla devletin yatırım tekeli yavaş yavaş gevşetilmeye başlandı; konut sektöründe özel sermaye ve piyasa odaklı uygulamalara doğru ilk adım[...]
             
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="year">1994</div>
-                    <p>Konut Tasarruf Fonu (Housing Provident Fund - HPF) sistemi resmen yürürlüğe konuldu. Bu sistem, çalışan ve işveren katkılarıyla zorunlu tasarruf biriktirip düşük faizli konut kredisi alma imkânı verdi.</p>
+                    <p>Konut Tasarruf Fonu (Housing Provident Fund - HPF) sistemi resmen yürürlüğe konuldu. Bu sistem, çalışan ve işveren katkılarıyla zorunlu tasarruf biriktirip düşük fa[...]
                 </div>
                 
                 <div class="timeline-item">
                     <div class="year">1998</div>
-                    <p>Konut sisteminde köklü bir dönüşüm yaşandı: devlet tarafından sağlanan refah konutları uygulaması sona erdirildi, kamu konutlarının mülkiyeti kiracılarına düşük fiyatlarla devredildi ve konutlar piyasa odaklı sistemde satılmaya başlandı.</p>
+                    <p>Konut sisteminde köklü bir dönüşüm yaşandı: devlet tarafından sağlanan refah konutları uygulaması sona erdirildi, kamu konutlarının mülkiyeti kiracılarına düş[...]
                 </div>
             </div>
             
-            <p>HPF, Çin'de konut finansmanına erişimi kolaylaştıran önemli bir araç olarak konumlandı; düşük faizli kredi ve tasarruf teşvikleri sayesinde ev almayı daha ulaşılır hale getirdi.</p>
-            <p>Bu reformla birlikte devletin "refah konutu tahsisi" modelinden "mülkiyetin bireylere devri" modeline geçildi. Kamu konutunda kalanlar için satış fiyatları genellikle piyasa değerinin altında tutuldu.</p>
+            <p>HPF, Çin'de konut finansmanına erişimi kolaylaştıran önemli bir araç olarak konumlandı; düşük faizli kredi ve tasarruf teşvikleri sayesinde ev almayı daha ulaşılır hale [...]
+            <p>Bu reformla birlikte devletin "refah konutu tahsisi" modelinden "mülkiyetin bireylere devri" modeline geçildi. Kamu konutunda kalanlar için satış fiyatları genellikle piyasa değe[...]
         </section>
         
         <section class="info-box">
             <h2>Konut Piyasası ve Spekülasyonla Mücadele</h2>
-            <p>Çin liderliği altında "Evler yaşamak içindir, spekülasyon için değil" ilkesi benimsenmiş; spekülatif alım-satım ve aşırı fiyat artışlarıyla mücadele politikaları gündeme gelmiştir.</p>
+            <p>Çin liderliği altında "Evler yaşamak içindir, spekülasyon için değil" ilkesi benimsenmiş; spekülatif alım-satım ve aşırı fiyat artışlarıyla mücadele politikaları gü[...]
             
             <div class="quote">
                 "Evler yaşamak içindir, spekülasyon için değil!"
@@ -340,5 +385,142 @@
         <p>Çin Konut Politikaları ve Tarihsel Gelişimi - Bilgilendirme Sayfası</p>
         <p>Kaynak: Çin konut politikaları üzerine derlenmiş bilgiler</p>
     </footer>
+
+    <!-- Düzenleme kontrolleri (ekranın sağ alt köşesinde) -->
+    <div class="edit-controls" aria-hidden="false">
+        <button class="edit-btn" id="toggle-edit">Düzenle</button>
+        <button class="save-btn" id="save-edits" hidden>Kaydet</button>
+        <button class="reset-btn" id="reset-edits" hidden>Sıfırla</button>
+    </div>
+
+    <div class="edit-toast" id="edit-toast" role="status" aria-live="polite">Kaydedildi</div>
+
+    <script>
+    // Basit, sayfayı bozmadan kutucukların içeriğini düzenlemeye ve yerelde kaydetmeye yarayan betik.
+    // Çalışma şekli:
+    // - "Düzenle"ye tıklayınca .info-box ve .program-box içindeki metinler contenteditable olur.
+    // - "Kaydet" ile değişiklikler localStorage'a kaydedilir ve tekrar yüklendiğinde geri gelir.
+    // - "Sıfırla" ile localStorage temizlenir ve sayfa orijinal içeriğe döner.
+    (function () {
+        const EDIT_KEY = 'evsahipligi_edits_v1';
+        const editableSelectors = ['.info-box', '.program-box'];
+        const editBtn = document.getElementById('toggle-edit');
+        const saveBtn = document.getElementById('save-edits');
+        const resetBtn = document.getElementById('reset-edits');
+        const toast = document.getElementById('edit-toast');
+        let editMode = false;
+
+        // Tüm hedef kutucukları listele (sırayı korur)
+        function getBoxes() {
+            const boxes = [];
+            editableSelectors.forEach(sel => {
+                document.querySelectorAll(sel).forEach(el => boxes.push(el));
+            });
+            return boxes;
+        }
+
+        // Kaydedilmiş veriyi getir
+        function loadSaved() {
+            try {
+                const raw = localStorage.getItem(EDIT_KEY);
+                if (!raw) return null;
+                return JSON.parse(raw);
+            } catch (e) {
+                console.error('Kaydedilmiş veri okunamadı:', e);
+                return null;
+            }
+        }
+
+        // Veriyi uygula (boxes sırasına göre)
+        function applySaved() {
+            const data = loadSaved();
+            if (!data) return;
+            const boxes = getBoxes();
+            boxes.forEach((box, idx) => {
+                if (data[idx] !== undefined) {
+                    box.innerHTML = data[idx];
+                }
+            });
+        }
+
+        // Kaydet
+        function saveEdits() {
+            const boxes = getBoxes();
+            const data = boxes.map(b => b.innerHTML);
+            try {
+                localStorage.setItem(EDIT_KEY, JSON.stringify(data));
+                showToast('Kaydedildi');
+            } catch (e) {
+                console.error('Kaydetme hatası:', e);
+                showToast('Kaydetme başarısız');
+            }
+        }
+
+        // Sıfırla (localStorage temizle, sayfayı yeniden yükle)
+        function resetEdits() {
+            localStorage.removeItem(EDIT_KEY);
+            showToast('Kayıtlı değişiklikler silindi');
+            setTimeout(() => location.reload(), 600);
+        }
+
+        // Düzenleme modunu aç/kapat
+        function toggleEditMode() {
+            editMode = !editMode;
+            const boxes = getBoxes();
+            if (editMode) {
+                document.documentElement.classList.add('editable-active');
+                boxes.forEach(b => b.setAttribute('contenteditable', 'true'));
+                editBtn.textContent = 'Düzenleme İptal';
+                saveBtn.hidden = false;
+                resetBtn.hidden = false;
+            } else {
+                document.documentElement.classList.remove('editable-active');
+                boxes.forEach(b => b.removeAttribute('contenteditable'));
+                editBtn.textContent = 'Düzenle';
+                saveBtn.hidden = true;
+                // resetBtn remains visible only if there is saved data
+                resetBtn.hidden = !loadSaved();
+            }
+        }
+
+        // Görsel bildirim
+        let toastTimer = null;
+        function showToast(msg) {
+            if (!toast) return;
+            toast.textContent = msg;
+            toast.style.display = 'block';
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => {
+                toast.style.display = 'none';
+            }, 1400);
+        }
+
+        // Event'leri bağla
+        editBtn.addEventListener('click', () => toggleEditMode());
+        saveBtn.addEventListener('click', () => {
+            saveEdits();
+            toggleEditMode();
+        });
+        resetBtn.addEventListener('click', () => {
+            if (confirm('Kaydedilmiş tüm değişiklikler silinecek. Devam edilsin mi?')) {
+                resetEdits();
+            }
+        });
+
+        // Sayfa yüklenince kaydetilmiş içerik varsa uygula ve reset butonunu görünür yap
+        document.addEventListener('DOMContentLoaded', () => {
+            applySaved();
+            resetBtn.hidden = !loadSaved();
+        });
+
+        // Klavye kısayolu: Ctrl+E ile düzenlemeyi açıp kapatma (isteğe bağlı)
+        document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'e') {
+                e.preventDefault();
+                toggleEditMode();
+            }
+        });
+    })();
+    </script>
 </body>
 </html>
